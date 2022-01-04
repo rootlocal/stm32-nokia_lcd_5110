@@ -3,6 +3,8 @@
 This library is used to control Nokia's 5110 LCD on STM32 devices. It was built on STM's HAL and intends to offer an 
 easy and fast way to use 5110 using HAL's GPIOs. It's based on two other 5110 libraries:
 
+![snapshot config image](doc/lcd-nokia-5110-2.jpg)
+
 ## How to use this library?
 This library was built to use with STM32 HAL for STM32 devices. It's recommended to use it with STM32CubeMX.
 
@@ -10,6 +12,20 @@ Steps to use this library:
 * Configure the desired pins you want to use with the LCD as GPIOs on STM32CubeMX.
 * Import this library into your generated project.
 * Configure your pins using the library set functions:
+
+![snapshot config image](doc/snapshot_config.png)
+
+| LCD  |         STM32 |
+| :--- |--------------:| 
+| RST  | BOARD_LCD_RST |
+| CE   |  BOARD_LCD_CE |
+| DC   |  BOARD_LCD_DC |
+| DIN  |     SPI1_MOSI |
+| CLK  |      SPI1_CLK |
+| VCC  |           VCC |
+| BL   | BOARD_LCD_LED |
+| GND  |           GND |
+
 
 ~~~ c
 #include <stdio.h>
@@ -39,9 +55,6 @@ int main(void) {
    }
 }
 ~~~
-
-
-Example:
 
 --------------------
 Github: https://github.com/rootlocal/stm32-nokia_lcd_5110
