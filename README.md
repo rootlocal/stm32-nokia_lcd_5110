@@ -12,6 +12,10 @@ Steps to use this library:
 * Configure your pins using the library set functions:
 
 ~~~ c
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
    LCD_setRST(BOARD_LCD_RST_GPIO_Port, BOARD_LCD_RST_Pin);
    LCD_setCE(BOARD_LCD_CE_GPIO_Port, BOARD_LCD_CE_Pin);
    LCD_setDC(BOARD_LCD_DC_GPIO_Port, BOARD_LCD_DC_Pin);
@@ -19,10 +23,25 @@ Steps to use this library:
    LCD_setSPI(&hspi1);
    LCD_Init();
    LCD_Led(true);
+   
+   char bufLed[255];
+   memset(bufLed, 0, sizeof(bufLed));
+   
+   while(1){
+        sprintf(bufLed, "Hello world");
+        LCD_Write_String(0, 0, bufLed);
+
+        LCD_setFONT(font_6x8_bold);
+        sprintf(bufLed, "TEST");
+        LCD_Write_String(0, 1, bufLed);
+        
+        HAL_Delay(5000);
+   }
+}
 ~~~
 
 
 Example:
 
 --------------------
-Github: https://github.com/rootlocal
+Github: https://github.com/rootlocal/stm32-nokia_lcd_5110
