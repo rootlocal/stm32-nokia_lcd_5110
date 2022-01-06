@@ -38,7 +38,7 @@ int main(void) {
    LCD_setLED(BOARD_LCD_LED_GPIO_Port, BOARD_LCD_LED_Pin);
    LCD_setSPI(&hspi1);
    LCD_Init();
-   LCD_Led(true);
+   LCD_Led(LCD_LED_STATUS_ON);
    
    char bufLed[255];
    memset(bufLed, 0, sizeof(bufLed));
@@ -55,6 +55,10 @@ int main(void) {
    }
 }
 ~~~
+
+![table1](doc/table1.png)
+![table2](doc/table2.png)
+
 
 --------------------
 Github: https://github.com/rootlocal/stm32-nokia_lcd_5110
