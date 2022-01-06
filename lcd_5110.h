@@ -10,7 +10,6 @@ extern "C" {
 #include <stdint.h>
 #include "spi.h"
 #include "lcd_font.h"
-#include "lcd_buffer.h"
 
 /**
  * @brief 0b00000000 no operation
