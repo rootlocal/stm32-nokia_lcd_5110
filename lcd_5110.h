@@ -68,6 +68,7 @@ extern "C" {
 
 #define     PCD8544_VOP                             0x80                                    // 1 VOP6 VOP5 VOP4 VOP3 VOP2 VOP1 VOP0
 
+#define LCD_SPI_TIMEOUT                             50
 
 /*
  * @brief LCD config

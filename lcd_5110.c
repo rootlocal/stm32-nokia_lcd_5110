@@ -61,7 +61,6 @@ void LCD_Config() {
     LCD_Write_Command(PCD8544_PD_ACTIVE);
     LCD_Write_Command(PCD8544_DISPLAY_NORMAL);
     LCD_Write_Command(PCD8544_NORMAL_MODE);
-    LCD_Write_Command(PCD8544_DISPLAY_NORMAL);
 }
 
 /**
@@ -182,7 +181,7 @@ LCD_ErrorStatus LCD_Write_Command(uint8_t cmd) {
 
     HAL_GPIO_WritePin(conf.CE_PORT, conf.CE_PIN, GPIO_PIN_RESET);
     HAL_GPIO_WritePin(conf.DC_PORT, conf.DC_PIN, GPIO_PIN_RESET);
-    HAL_Status = HAL_SPI_Transmit(conf.spi, &cmd, 0x01, 50);
+    HAL_Status = HAL_SPI_Transmit(conf.spi, &cmd, 0x01, LCD_SPI_TIMEOUT);
     HAL_GPIO_WritePin(conf.CE_PORT, conf.CE_PIN, GPIO_PIN_SET);
     HAL_GPIO_WritePin(conf.DC_PORT, conf.DC_PIN, GPIO_PIN_SET);
 
@@ -202,7 +201,7 @@ LCD_ErrorStatus LCD_Write_Data(uint8_t data) {
 
     HAL_GPIO_WritePin(conf.CE_PORT, conf.CE_PIN, GPIO_PIN_RESET);
     HAL_GPIO_WritePin(conf.DC_PORT, conf.DC_PIN, GPIO_PIN_SET);
-    HAL_Status = HAL_SPI_Transmit(conf.spi, &data, 0x01, 50);
+    HAL_Status = HAL_SPI_Transmit(conf.spi, &data, 0x01, LCD_SPI_TIMEOUT);
     HAL_GPIO_WritePin(conf.CE_PORT, conf.CE_PIN, GPIO_PIN_SET);
     HAL_GPIO_WritePin(conf.CE_PORT, conf.CE_PIN, GPIO_PIN_RESET);
 
