@@ -8,7 +8,7 @@ extern "C" {
 
 #include <stdint.h>
 
-typedef enum __LCD_fonts {
+typedef enum {
     font_6x8_rus,
     font_6x8_bold,
 } LCD_fonts;

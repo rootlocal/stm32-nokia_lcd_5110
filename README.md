@@ -30,6 +30,7 @@ Steps to use this library:
 ~~~ c
 #include <stdio.h>
 #include <string.h>
+#include "lcd_5110.h"
 
 int main(void) {
    LCD_setRST(BOARD_LCD_RST_GPIO_Port, BOARD_LCD_RST_Pin);
@@ -40,10 +41,10 @@ int main(void) {
    LCD_Init();
    LCD_Led(LCD_LED_STATUS_ON);
    
-   char bufLed[255];
-   memset(bufLed, 0, sizeof(bufLed));
+   char bufLed[255] = {0};
    
    while(1){
+        memset(bufLed, 0, sizeof(bufLed));
         sprintf(bufLed, "Hello world");
         LCD_Write_String(0, 0, bufLed);
 

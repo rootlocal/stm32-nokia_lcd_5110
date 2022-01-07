@@ -1,7 +1,7 @@
 
 #include "lcd_font.h"
-#include "fonts/font6x8_bold.h"
-#include "fonts/font_6x8_rus.h"
+#include "font6x8_bold.h"
+#include "font_6x8_rus.h"
 
 LCD_fonts lcd_font;
 
