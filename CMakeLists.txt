@@ -1,6 +1,8 @@
-message(STATUS "Build: lcd5110_lib")
+set(LIB_NAME lcd5110_lib)
+
+message(STATUS "Build: ${LIB_NAME}")
 
 include_directories("src/inc")
-file(GLOB_RECURSE LCD5110_SOURCES "src/*.*")
+file(GLOB_RECURSE LIB_SOURCES "src/*.*")
 
-ADD_LIBRARY(lcd5110_lib STATIC ${LCD5110_SOURCES})
+ADD_LIBRARY(${LIB_NAME} STATIC ${LIB_SOURCES})

@@ -2,14 +2,16 @@
 #ifndef __USER_5110_H_
 #define __USER_5110_H_
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+
 
 #include <stdbool.h>
 #include <stdint.h>
 #include "spi.h"
 #include "lcd_font.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * @brief 0b00000000 no operation
@@ -198,7 +200,7 @@ void LCD_Write_Char(uint8_t ch);
  * @param y start point
  * @param str string to write.
  */
-void LCD_Write_String(uint8_t x, uint8_t y, char *str);
+void LCD_Write_String(uint8_t x, uint8_t y, uint8_t *str);
 
 /**
  * LCD on/off display

@@ -44,7 +44,7 @@ int main(void) {
    char bufLed[255] = {0};
    
    while(1){
-        memset(bufLed, 0, sizeof(bufLed));
+        memset((char *)bufLed, 0, sizeof(bufLed));
         sprintf(bufLed, "Hello world");
         LCD_Write_String(0, 0, bufLed);
 

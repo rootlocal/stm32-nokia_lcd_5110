@@ -2,11 +2,11 @@
 #ifndef FONT_H
 #define FONT_H
 
+#include <stdint.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#include <stdint.h>
 
 typedef enum {
     font_6x8_rus,

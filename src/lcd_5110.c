@@ -175,7 +175,7 @@ void LCD_Write_Char(uint8_t ch) {
  * @param y start point
  * @param str string to write.
  */
-void LCD_Write_String(uint8_t x, uint8_t y, char *str) {
+void LCD_Write_String(uint8_t x, uint8_t y, uint8_t *str) {
 
     LCD_Set_Position(x, y);
 
