@@ -124,10 +124,12 @@ void LCD_Clear() {
     LCD_Set_Position(0, 0);
 
     for (t = 0; t < 6; t++) {
-        for (k = 0; k < 84; k++) {
+        for (k = 0; k < 83; k++) {
             LCD_Write_Data(PCD8544_NOP);
         }
     }
+
+    LCD_Set_Position(0, 0);
 }
 
 /**
@@ -152,6 +154,17 @@ void LCD_Write_Char(uint8_t ch) {
 
     for (line = 0; line < 6; line++) {
         LCD_Write_Data(LCD_getChar(ch, line));
+
+        if (cursor.LCD_cursor_x < 83) {
+            cursor.LCD_cursor_x += 1;
+        } else {
+            if (cursor.LCD_cursor_y < 5) {
+                LCD_Set_Position(0, cursor.LCD_cursor_y++);
+            } else {
+                LCD_Set_Position(0, 0);
+            }
+        }
+
     }
 
 }
@@ -241,4 +254,3 @@ uint8_t LCD_get_cursorX() {
 uint8_t LCD_get_cursorY() {
     return cursor.LCD_cursor_y;
 }
-
